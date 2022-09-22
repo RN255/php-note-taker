@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.title-section {
+  text-align: center;
+  margin: 1%;
+}
+
+.container {
+  width: 40%;
+  margin: auto;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+textarea {
+  width: 80%;
+  height: 100px;
+  padding: 1%;
+}
+
+.submit-btn {
+  text-align: center;
+}
+
+.submit-btn input {
+  padding: 1%;
+}
+
+.input {
+  padding: 5px;
+}
+
+.input input {
+  width: 80%;
+  padding: 1%;
+}
+
+.input label {
+  vertical-align: top;
+}
+
+.notes-list {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.card {
+  background: rgb(179, 210, 255, 0.2);
+  border-radius: 10px;
+  margin-bottom: 1%;
+  padding: 20px 12px;
+  transition: 0.1s;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* styling the notes area */
+
+.notes-list h2 {
+  padding: 1%;
+}
+
+.notes-list h3 {
+  padding: 1%;
+}
+
+.notes-list p {
+  padding: 1%;
+}
+
+.notes-list #delete-btn {
+  padding-top: 1%;
+}
+
+.notes-list #delete-btn input {
+  padding: 2px;
+}
