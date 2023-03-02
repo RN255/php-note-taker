@@ -1,21 +1,21 @@
 <?php
   // connect to database
-  $conn = mysqli_connect('localhost', 'robert', 'basic345', 'php_note_taker');
+  $conn = mysqli_connect('localhost', 'userOne', 'sample123', 'database02032023');
 
   //check connection
   if(!$conn) {
     echo 'Connection error: ' . mysqli_connect_error();
-  }  
+  }
 
   // print existing notes to the page
   // query for table
-  $sql = 'SELECT * FROM notes ORDER BY created_at DESC';
+  $sql = 'SELECT title, ingredients, id FROM info ORDER BY created_at DESC';
 
   // make query and get result
   $result = mysqli_query($conn, $sql);
 
   // fetch the resulting words as an array
-  $note_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $table_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   // free result from memory - good practice
   mysqli_free_result($result);
@@ -24,28 +24,28 @@
   mysqli_close($conn);
 
   // add new notes to the database
-  $title = $note_text = '';
+  $title = $ingredients = '';
 
   $error_msg = '';
 
   if(isset($_POST['submit'])){
 
     // open connection
-    $conn = mysqli_connect('localhost', 'robert', 'basic345', 'php_note_taker');
+    $conn = mysqli_connect('localhost', 'userOne', 'sample123', 'database02032023');
 
-    if((empty($_POST['title'])) && (empty($_POST['note_text']))) {
+    if((empty($_POST['title'])) && (empty($_POST['ingredients']))) {
         $error_msg = 'Some data is required <br />';
-        
+
     } else {
         $title = $_POST['title'];
-        $note_text = $_POST['note_text'];  
+        $ingredients = $_POST['ingredients'];
 
         // protect us from attacks
         $title = mysqli_real_escape_string($conn, $_POST['title']);
-        $note_text = mysqli_real_escape_string($conn, $_POST['note_text']);
+        $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
         //create sql
-        $sql = "INSERT INTO notes(title, note_text) VALUES('$title', '$note_text')";
+        $sql = "INSERT INTO info(title, ingredients) VALUES('$title', '$ingredients')";
 
         //save to database
         if(mysqli_query($conn, $sql)){
@@ -63,11 +63,11 @@
   if(isset($_POST['delete'])){
 
     // open connection
-    $conn = mysqli_connect('localhost', 'robert', 'basic345', 'php_note_taker');
+    $conn = mysqli_connect('localhost', 'userOne', 'sample123', 'database02032023');
 
-    $note_delete = mysqli_real_escape_string($conn, $_POST['note_delete']);
+    $info_delete = mysqli_real_escape_string($conn, $_POST['info_delete']);
 
-    $sql = "DELETE FROM notes WHERE title = '$note_delete'";
+    $sql = "DELETE FROM info WHERE title = '$info_delete'";
 
     if(mysqli_query($conn, $sql)){
         header('location: index.php');
@@ -87,7 +87,7 @@
     <div class=title-section>
       <h1>NOTES</h1>
     </div>
-    
+
     <section class=container>
         <h2>ADD A NEW NOTE</h2>
         <div><?php echo $error_msg; ?></div>
@@ -98,8 +98,8 @@
                 <input type="text" name="title">
             </div>
             <div class="input">
-                <label class="text-area-label">Text:</label>
-                <textarea type="text" name="note_text"></textarea>
+                <label class="text-area-label">Ingredients:</label>
+                <textarea type="text" name="ingredients"></textarea>
             </div>
 
             <div class="submit-btn">
@@ -110,13 +110,13 @@
 
     <section class="notes-list">
         <h2>NOTES</h2>
-            <?php foreach($note_info as $note_info) { ?>
+            <?php foreach($table_info as $table_info) { ?>
                 <div class="card">
-                    <h3><?php echo htmlspecialchars($note_info['title']); ?></h3> 
-                    <p><?php echo htmlspecialchars($note_info['note_text']); ?></p>
+                    <h3><?php echo htmlspecialchars($table_info['title']); ?></h3>
+                    <p><?php echo htmlspecialchars($table_info['ingredients']); ?></p>
                     <div id="delete-btn">
                         <form action="index.php" method="POST">
-                        <input type="hidden" name="note_delete" value="<?php echo $note_info['title'] ?>">
+                        <input type="hidden" name="info_delete" value="<?php echo $table_info['title'] ?>">
                         <input type="submit" name="delete" value="Delete">
                     </div>
                     </form>
