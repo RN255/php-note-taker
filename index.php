@@ -81,84 +81,73 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="styles.css">
-</head>
-    <nav>
-        <a href="#"><img src="assets\database.png" alt="logo" id="navImg"></a>
-        <button onclick="showMenu()"><img src="assets\burger-menu.png" alt="menu icon" id="menuImg"><p>Menu</p></button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- title -->
+        <title>PHP project</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <nav>
+            <a href="#"><img src="assets\database.png" alt="logo" id="navImg"></a>
+            <button onclick="showMenu()"><img src="assets\burger-menu.png" alt="menu icon" id="menuImg"><p>Menu</p></button>
 
-        <div id="menu">
-            <ul>
-                <button onclick="hideMenu()">Hide</button>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li>
-                <div>
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
+            <div id="menu">
+                <button onclick="hideMenu()">Close</button>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div id="menuSocialLinks">
+                    <a href="#"><img src="assets\facebook.png" alt="facebook icon"></a>
+                    <a href="#"><img src="assets\instagram.png" alt="instagram icon"></a>
+                    <a href="#"><img src="assets\linkedin.png" alt="linkedin icon"></a>
                 </div>
-            </ul>
+            </div>
+
+        </nav>
+        <div class=title-section>
+        <h1>NOTES</h1>
         </div>
 
-    </nav>
-    <div class=title-section>
-      <h1>NOTES</h1>
-    </div>
+        <section class=container>
+            <h2>ADD A NEW NOTE</h2>
+            <div><?php echo $error_msg; ?></div>
 
-    <section class=container>
-        <h2>ADD A NEW NOTE</h2>
-        <div><?php echo $error_msg; ?></div>
-
-        <form action="index.php" method="POST">
-            <div class="input">
-                <label>Title:</label>
-                <input type="text" name="title">
-            </div>
-            <div class="input">
-                <label class="text-area-label">Ingredients:</label>
-                <textarea type="text" name="ingredients"></textarea>
-            </div>
-
-            <div class="submit-btn">
-                <input type="submit" name="submit" value="submit">
-            </div>
-        </form>
-    </section>
-
-    <section class="notes-list">
-        <h2>NOTES</h2>
-            <?php foreach($table_info as $table_info) { ?>
-                <div class="card">
-                    <h3><?php echo htmlspecialchars($table_info['title']); ?></h3>
-                    <p><?php echo htmlspecialchars($table_info['ingredients']); ?></p>
-                    <div id="delete-btn">
-                        <form action="index.php" method="POST">
-                        <input type="hidden" name="info_delete" value="<?php echo $table_info['title'] ?>">
-                        <input type="submit" name="delete" value="Delete">
-                    </div>
-                    </form>
+            <form action="index.php" method="POST">
+                <div class="input">
+                    <label>Title:</label>
+                    <input type="text" name="title">
                 </div>
-            <?php } ?>
-    </section>
-    <script>
+                <div class="input">
+                    <label class="text-area-label">Ingredients:</label>
+                    <textarea type="text" name="ingredients"></textarea>
+                </div>
 
-        var menu = document.getElementById("menu");
+                <div class="submit-btn">
+                    <input type="submit" name="submit" value="submit">
+                </div>
+            </form>
+        </section>
 
-        function showMenu() {
-            menu.style.transform = "none";
-            menu.style.visibility = "visible";
-            menu.style.opacity = "1";
-      }
-
-      function hideMenu() {
-            menu.style.transform = "translateX(+100vw)";
-            menu.style.visibility = "hidden";
-            menu.style.opacity = "0";
-      }
-
-
-
-    </script>
+        <section class="notes-list">
+            <h2>NOTES</h2>
+                <?php foreach($table_info as $table_info) { ?>
+                    <div class="card">
+                        <h3><?php echo htmlspecialchars($table_info['title']); ?></h3>
+                        <p><?php echo htmlspecialchars($table_info['ingredients']); ?></p>
+                        <div id="delete-btn">
+                            <form action="index.php" method="POST">
+                            <input type="hidden" name="info_delete" value="<?php echo $table_info['title'] ?>">
+                            <input type="submit" name="delete" value="Delete">
+                        </div>
+                        </form>
+                    </div>
+                <?php } ?>
+        </section>
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -55,6 +55,51 @@ nav p {
   /* transform: none; */
   transition: 0.5s;
   opacity: 0;
+  z-index: 10;
+}
+
+#menu button {
+  position: fixed;
+  right: 5vw;
+  top: 5vh;
+  padding: 10px 20px;
+}
+
+#menu ul {
+  width: fit-content;
+  margin: auto;
+  margin-top: 20vh;
+  margin-bottom: 50px;
+  text-align: center;
+  list-style: none;
+}
+
+#menu ul li {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #000000;
+}
+
+#menu a:hover {
+  color: #00000050;
+}
+
+#menuSocialLinks {
+  width: fit-content;
+  margin: auto;
+}
+
+#menuSocialLinks a:hover {
+  opacity: 0.5;
+}
+
+#menu img {
+  height: 25px;
+  margin: 0 10px;
 }
 
 /* main */
@@ -65,7 +110,7 @@ nav p {
 }
 
 .container {
-  width: 40%;
+  width: 80%;
   margin: auto;
 }
 
