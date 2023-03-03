@@ -49,11 +49,12 @@ nav p {
   left: 0;
   height: 100%;
   width: 100%;
+  background-color: #ffffff;
   visibility: hidden;
-  background-color: aqua;
   transform: translateX(+100vw);
   /* transform: none; */
   transition: 0.5s;
+  opacity: 0;
 }
 
 /* main */
