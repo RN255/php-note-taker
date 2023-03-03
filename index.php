@@ -84,6 +84,25 @@
 <head>
   <link rel="stylesheet" href="styles.css">
 </head>
+    <nav>
+        <a href="#"><img src="assets\database.png" alt="logo" id="navImg"></a>
+        <button onclick="showMenu()"><img src="assets\burger-menu.png" alt="menu icon" id="menuImg"><p>Menu</p></button>
+
+        <div id="menu">
+            <ul>
+                <button onclick="hideMenu()">Hide</button>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                <div>
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                </div>
+            </ul>
+        </div>
+
+    </nav>
     <div class=title-section>
       <h1>NOTES</h1>
     </div>
@@ -123,4 +142,21 @@
                 </div>
             <?php } ?>
     </section>
+    <script>
+
+        var menu = document.getElementById("menu");
+
+        function showMenu() {
+            menu.style.transform = "none";
+            menu.style.visibility = "visible";
+      }
+
+      function hideMenu() {
+            menu.style.transform = "translateX(+100vw)";
+            menu.style.visibility = "hidden";
+      }
+
+
+
+    </script>
 </html>
