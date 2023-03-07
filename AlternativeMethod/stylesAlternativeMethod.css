@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* navbar  */
+
+nav {
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#navImg {
+  width: 50px;
+}
+
+nav button {
+  background: none;
+  border: 1px #000000 solid;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 15px 5px 5px;
+  margin-top: 5px;
+  transition: 0.25s;
+  display: flex;
+}
+
+nav button:hover {
+  background-color: #c9c9c950;
+  transition: 0.25s;
+}
+
+#menuImg {
+  height: 35px;
+  margin-right: 10px;
+}
+
+nav p {
+  margin-top: 11px;
+}
+
+/* Menu  */
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  visibility: hidden;
+  transform: translateX(+100vw);
+  /* transform: none; */
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+}
+
+#menu button {
+  position: fixed;
+  right: 5vw;
+  top: 5vh;
+  padding: 10px 20px;
+}
+
+#menu ul {
+  width: fit-content;
+  margin: auto;
+  margin-top: 20vh;
+  margin-bottom: 50px;
+  text-align: center;
+  list-style: none;
+}
+
+#menu ul li {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #000000;
+}
+
+#menu a:hover {
+  color: #00000050;
+}
+
+#menuSocialLinks {
+  width: fit-content;
+  margin: auto;
+}
+
+#menuSocialLinks a:hover {
+  opacity: 0.5;
+}
+
+#menu img {
+  height: 25px;
+  margin: 0 10px;
+}
+
+/* main */
+
+.title-section {
+  text-align: center;
+  margin: 1%;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+textarea {
+  width: 80%;
+  height: 100px;
+  padding: 1%;
+}
+
+.submit-btn {
+  text-align: center;
+}
+
+.submit-btn input {
+  padding: 1%;
+}
+
+.input {
+  padding: 5px;
+}
+
+.input input {
+  width: 80%;
+  padding: 1%;
+}
+
+.input label {
+  vertical-align: top;
+}
+
+.notes-list {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.card {
+  background: rgb(179, 210, 255, 0.2);
+  border-radius: 10px;
+  margin-bottom: 1%;
+  padding: 20px 12px;
+  transition: 0.1s;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* styling the notes area */
+
+.notes-list h2 {
+  padding: 1%;
+}
+
+.notes-list h3 {
+  padding: 1%;
+}
+
+.notes-list p {
+  padding: 1%;
+}
+
+.notes-list #delete-btn {
+  padding-top: 1%;
+}
+
+.notes-list #delete-btn input {
+  padding: 2px;
+}
+
+/* edit button  */
+
+.notes-list #edit-btn {
+  padding-top: 1%;
+}
+
+.notes-list #edit-btn input {
+  padding: 2px;
+  background-color: aquamarine;
+}
